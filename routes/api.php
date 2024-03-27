@@ -25,7 +25,7 @@ Route::middleware('auth:api')->get('/test', function () {
     return "Hello";
 });
 
-// -- Category api urls
+// Category routes group
 Route::middleware('auth:api')->get('/categories', [CategoryController::class, 'getCategories']);
 Route::middleware('auth:api')->middleware('isAdmin')->post('/categories', [CategoryController::class, 'createCategory']);
 Route::middleware('auth:api')->get('/categories/{categoryId}', [CategoryController::class, 'getCategory']);
@@ -33,7 +33,7 @@ Route::middleware('auth:api')->patch('/categories/{categoryId}', [CategoryContro
 Route::middleware('auth:api')->delete('/categories/{categoryId}', [CategoryController::class, 'deleteCategory']);
 Route::middleware('auth:api')->get('/categories/{categoryId}/products', [CategoryController::class, 'getProductsOfCategory']);
 
-// -- Product api urls
+// Product routes group
 Route::middleware('auth:api')->get('/products', [ProductController::class, 'getProducts']);
 Route::middleware('auth:api')->post('/products', [ProductController::class, 'createProduct']);
 Route::middleware('auth:api')->get('/products/{productId}', [ProductController::class, 'getProduct']);
